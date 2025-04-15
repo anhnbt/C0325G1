@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Pikachu Bay Lên</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(to top, #87ceeb, #ffffff);
+        }
+
+        #pikachu {
+            position: absolute;
+            bottom: 0; /* Hiển thị ở dưới cùng */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            transition: bottom 19s linear;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        #pikachu.flyed {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease;
+        }
+
+        #pikachu:hover {
+            transform: translateX(-50%) scale(1.1) rotate(-3deg);
+            filter: drop-shadow(0 0 10px yellow);
+        }
+
+        .cloud {
+            position: absolute;
+            top: 50px;
+            width: 120px;
+            opacity: 0.6;
+            animation: moveCloud 30s linear infinite;
+        }
+
+        .cloud:nth-child(2) {
+            top: 150px;
+            left: -200px;
+            animation-duration: 45s;
+            animation-delay: 5s;
+            width: 180px;
+        }
+
+        @keyframes moveCloud {
+            from {
+                left: -200px;
+            }
+            to {
+                left: 110%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Đám mây -->
+<img src="cloud.png" alt="cloud" class="cloud" />
+<img src="cloud.png" alt="cloud" class="cloud" />
+
+<!-- Pikachu -->
+<img src="pikachu.png" alt="Pikachu bay" id="pikachu" />
+
+<!-- Âm thanh -->
+<audio id="flySound" src="fly.wav" preload="auto"></audio>
+
+<script>
+    const pika = document.getElementById("pikachu");
+    const sound = document.getElementById("flySound");
+
+    pika.addEventListener("click", () => {
+        // Cho Pikachu bay từ dưới lên
+        pika.style.bottom = "100%";
+
+        // Phát âm thanh nếu được phép
+        sound.play().catch(() => {
+            console.log("Trình duyệt chặn autoplay. Chỉ phát khi click.");
+        });
+
+        // Khi bay xong thì ẩn Pikachu
+        setTimeout(() => {
+            pika.classList.add("flyed");
+        }, 19000); // 19s bay
+    });
+</script>
+
+</body>
+</html>
