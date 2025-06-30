@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Float CSS</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            border: 2px solid red;
+            padding: 10px;
+            /*clear float*/
+            display: table;
+            clear: both;
+        }
+
+        header, footer {
+            background-color: gray;
+            color: white;
+            padding: 10px;
+        }
+
+        nav {
+            border-bottom: 1px solid gray;
+            padding: 4px;
+            background-color: white;
+            position: sticky;
+            top: 0;
+            /*width: 100%;*/
+        }
+
+        ul {
+            list-style-type: none;
+            /*  clear fix*/
+            display: table;
+            clear: both;
+            content: "";
+            margin: auto;
+        }
+
+        ul li {
+            float: left;
+            padding: 4px 4px;
+            position: relative;
+        }
+
+        ul li a {
+            text-decoration: none;
+        }
+
+        ul li a:hover {
+            color: red;
+        }
+
+        aside {
+            float: left;
+            width: 25%;
+            padding: 20px;
+            position: sticky;
+            top: 20px;
+        }
+
+        .item {
+            border: 1px solid gray;
+            margin-bottom: 10px;
+            padding: 10px;
+            position: relative;
+        }
+
+        .item span {
+            background-color: black;
+            color: white;
+            padding: 4px;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        main {
+            float: left;
+            width: 75%;
+            padding: 20px;
+        }
+
+        .clearfix {
+            display: table;
+            content: "";
+            clear: both;
+        }
+
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 25px;
+            left: 0;
+            background: white;
+            border: 1px solid gray;
+            width: 250px;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            float: none;
+            padding: 10px;
+        }
+
+        .zalo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+<!--<div class="container">-->
+<!--  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga id ipsum itaque modi nam pariatur quis unde. Alias, aspernatur distinctio doloribus esse exercitationem laborum modi nisi perferendis praesentium provident quaerat.</p>-->
+<!--  <img style="float: left" src="Ash-and-Pikchu.png" alt="Pikachu" width="200">-->
+<!--  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga id ipsum itaque modi nam pariatur quis unde. Alias, aspernatur distinctio doloribus esse exercitationem laborum modi nisi perferendis praesentium provident quaerat.</p>-->
+<!--  <img src="ball-poke.png" alt="Ball" width="200px">-->
+<!--  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga id ipsum itaque modi nam pariatur quis unde. Alias, aspernatur distinctio doloribus esse exercitationem laborum modi nisi perferendis praesentium provident quaerat.</p>-->
+<!--</div>-->
+<header>
+    LOGO
+</header>
+<nav>
+    <ul class="menu">
+        <li><a href="#">Home</a> |</li>
+        <li><a href="#">About</a> |</li>
+        <li><a href="#">Contact</a> |</li>
+        <li>
+            <a href="#">Services</a>
+            <ul>
+                <li>Pha cà phê</li>
+                <li>Quét dọn</li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<aside>
+    <div class="item">
+        <img src="Ash-and-Pikchu.png" width="140" alt="">
+        <h4>Ash</h4>
+        <span>1,000,000 view</span>
+    </div>
+    <div class="item">
+        <img src="Ash-and-Pikchu.png" width="140" alt="">
+        <h4>Pikchu</h4>
+        <span>1,000,000 view</span>
+    </div>
+    <div class="item">
+        <img src="Ash-and-Pikchu.png" width="140" alt="">
+        <h4>Ash</h4>
+        <span>1,000,000 view</span>
+    </div>
+</aside>
+<main>
+    <article>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/el2ao5PTXmE?si=pZXHiSLhG3mWT9vG"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <h2>MAN UNITED - ASTON VILLA | BƯỚC NGOẶT TRỌNG TÀI, ĐÁNH RƠI TẤM VÉ TIẾC NUỐI | NGOẠI HẠNG ANH 24/25
+        </h2>
+        <p><strong>MAN UNITED</strong> - ASTON VILLA | BƯỚC NGOẶT TRỌNG TÀI, ĐÁNH RƠI TẤM VÉ TIẾC NUỐI | NGOẠI HẠNG ANH
+            24/25
+
+            #kplussports #ngoaihanganh #highlight #manchesterunited #astonvilla <span
+                    style="background-color: yellow;display: block">#premierleague</span>
+
+            K+ Siêu nền tảng đa tầng giải trí !!!
+            👉 Cập nhật tin tức bóng đá nóng hổi nhất ngay tại : • BUZZ NEWS - TIN TỨC THỂ THAO MỚI NHẤT
+            👉 Xem kho nội dung K+Vui Miễn Phí tại: https://bit.ly/3Yy6Yke</p>
+
+        <div class="item">
+            <img src="Ash-and-Pikchu.png" width="140" alt="">
+            <h4>Pikchu</h4>
+            <span>1,000,000 view</span>
+        </div>
+        <div class="item">
+            <img src="Ash-and-Pikchu.png" width="140" alt="">
+            <h4>Ash</h4>
+        </div>
+        <div class="item">
+            <img src="Ash-and-Pikchu.png" width="140" alt="">
+            <h4>Pikchu</h4>
+        </div>
+        <div class="item">
+            <img src="Ash-and-Pikchu.png" width="140" alt="">
+            <h4>Ash</h4>
+        </div>
+        <div class="item">
+            <img src="Ash-and-Pikchu.png" width="140" alt="">
+            <h4>Pikchu</h4>
+        </div>
+        <div class="item">
+            <img src="Ash-and-Pikchu.png" width="140" alt="">
+            <h4>Ash</h4>
+        </div>
+        <div class="item">
+            <img src="Ash-and-Pikchu.png" width="140" alt="">
+            <h4>Pikchu</h4>
+        </div>
+    </article>
+</main>
+<div class="clearfix"></div>
+<footer>&copy; 2025 CodeGym</footer>
+<img class="zalo" src="Icon_of_Zalo.svg.webp" alt="Zalo" width="60">
+</body>
+</html>

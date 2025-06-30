@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <style>
+        header, footer {
+            background-color: darkgrey;
+            padding: 20px;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            background-color: black;
+            font-size: 0;
+        }
+
+        ul li {
+            display: inline-block;
+            background-color: gray;
+        }
+
+        ul li:hover {
+            background-color: red;
+        }
+
+        ul li a {
+            font-size: 16px;
+            color: white;
+            display: block;
+            padding: 6px 10px;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+        }
+
+        .content {
+            flex: 7;
+            background-color: red;
+        }
+
+        aside {
+            flex: 3;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<header>LOGO</header>
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+<main>
+    <div class="content">
+        <section>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi, architecto consequuntur eligendi
+                impedit modi pariatur rem. Corporis deserunt dolorum, ducimus, iure laborum magni neque odit praesentium
+                quidem sint, temporibus!</p>
+        </section>
+    </div>
+    <aside>
+        <div class="ads">ADS</div>
+    </aside>
+</main>
+<footer>&copy; 2025 CodeGym</footer>
+</body>
+</html>

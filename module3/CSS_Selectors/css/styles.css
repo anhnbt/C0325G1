@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: lightgray;
+}
+
+h1 {
+    font-family: "Dancing Script", Arial;
+    text-decoration: underline;
+    font-style: normal;
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+ul li a {
+    text-transform: capitalize;
+    font-style: normal;
+    font-weight: 400;
+}
+
+a {
+    color: black;
+    text-decoration: line-through;
+}
+
+a:visited {
+    color: red;
+}
+
+a:hover {
+    color: orange;
+}
+
+/* . (dot): class selector */
+.box {
+    background-color: #000;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    /*padding: 10px;*/
+    /*border: 10px solid;*/
+    /*margin: 10px;*/
+    /*padding:  top right bottom left*/
+    /*padding: top+bottom left+right*/
+    padding: 4px 10px;
+}
+
+main {
+    display: flex;
+}
+
+#second {
+    background-color: red;
+}
+
+#third {
+    background-color: green;
+}
+
+h1, ul, .box {
+    text-align: center;
+}
+
+.bg {
+    background-image: url("../img/i-like-food.svg");
+    background-size: cover;
+}
+
+.overlay {
+    background-color: rgba(255, 255, 0, 0.4);
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 200px;
+    top: 0;
+}
