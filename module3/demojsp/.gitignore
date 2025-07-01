@@ -1,0 +1,10 @@
+# Ignore IntelliJ IDEA project files and folders
+.idea/
+**/.idea/
+*.iml
+# Ignore build output in all folders
+build/
+**/build/
+# Ignore OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 17: OOP (2)</title>
+</head>
+
+<body>
+  <form action="" onsubmit="createStudent(event)">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required><br><br>
+    <label for="major">Major:</label>
+    <input type="text" id="major" name="major" required><br><br>
+    <label for="grade">Grade:</label>
+    <input type="text" id="grade" name="grade" required><br><br>
+    <button type="submit">Add Student</button>
+  </form>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Major</th>
+        <th>Grade</th>
+        <th colspan="2">Action</th>
+      </tr>
+    </thead>
+    <tbody id="student-table-body">
+      <!-- Rows will be generated here -->
+    </tbody>
+    </thead>
+  </table>
+  <script>
+    // Khai báo lớp Person:
+    // Bản thiết kế cho các đối tượng có cùng loại
+    // Function constructor
+    // Hàm khởi tạo đối tượng, có thể coi như một lớp trong OOP
+    // function Person(name, age) {
+    //   this.name = name;
+    //   this.age = age;
+    //   this.greet = function () {
+    //     console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    //   };
+    // }
+
+    // // Tạo đối tượng cụ thể từ bản thiết kế Person:
+    // const person1 = new Person('Alice', 30);
+    // const person2 = new Person('Bob', 25);
+    // console.log(person1);
+    // console.log(person2);
+
+    class Person {
+      #name; // private field
+      #age; // private field
+
+      constructor(name, age) {
+        this.#name = name;
+        this.#age = age;
+      }
+
+      get name() {
+        return this.#name;
+      }
+
+      set name(newName) {
+        this.#name = newName;
+      }
+
+      get age() {
+        return this.#age;
+      }
+
+      greet() {
+        console.log(`Hello, my name is ${this.#name} and I am ${this.#age} years old.`);
+      }
+    }
+    // const person1 = new Person();
+
+    // person1.name = 'Alice';
+    // console.log(person1.name);
+    // // Math, Date
+    // console.log(Math.PI); // 3.141592653589793
+    // console.log(Math.pow(3, 2)); // 8
+    // const currentDate = new Date();
+    // console.log(currentDate.getFullYear()); // Current date and time
+    // // console.log(person1.#age);
+
+    class Student extends Person {
+      constructor(name, age, major, grade) {
+        super(name, age); // Gọi hàm khởi tạo của lớp cha
+        this.major = major;
+        this.grade = grade;
+      }
+
+      study() {
+        console.log(`${this.name} is studying ${this.major}.`);
+      }
+    }
+    const student1 = new Student('Alice', 20, 'Computer Science', 'A');
+    const student2 = new Student('Bob', 22, 'Mathematics', 'B');
+    const students = [student1, student2];
+    students.push(new Student('Charlie', 21, 'Physics', 'A'));
+    students.push(new Student('David', 23, 'Chemistry', 'C'));
+
+    const table = document.getElementById('student-table-body');
+    function displayStudents() {
+      let html = '';
+      students.forEach(function (student) {
+        html += `<tr>
+          <td>${student.name}</td>
+          <td>${student.age}</td>
+          <td>${student.major}</td>
+          <td>${student.grade}</td>
+          <td><button onclick="deleteStudent('${student.name}')">Delete</button></td>
+          <td><button onclick="updateStudent('${student.name}')">Update</button></td>
+        </tr>`;
+      });
+      table.innerHTML = html;
+    }
+    displayStudents(); // Hiển thị danh sách sinh viên ban đầu
+
+    function createStudent(event) {
+      event.preventDefault(); // Ngăn chặn hành vi mặc định của form
+      const name = document.getElementById('name').value;
+      const age = document.getElementById('age').value;
+      const major = document.getElementById('major').value;
+      const grade = document.getElementById('grade').value;
+
+      const newStudent = new Student(name, age, major, grade);
+      students.push(newStudent);
+
+      displayStudents(); // Cập nhật danh sách sinh viên hiển thị
+      resetForm(); // Đặt lại form
+    }
+
+    function resetForm() {
+      document.getElementById('name').value = '';
+      document.getElementById('age').value = '';
+      document.getElementById('major').value = '';
+      document.getElementById('grade').value = '';
+    }
+  </script>
+</body>
+
+</html>

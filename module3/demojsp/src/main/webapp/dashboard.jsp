@@ -1,47 +1,49 @@
-<%@ page import="java.util.Date" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: Nguyễn Bá Tuấn Anh (anhnbt.it@gmail.com)
   Date: 30/06/2025
   Time: 5:03 CH
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%--formater--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Dashboard</title>
-<%-- add bootstrap 5   --%>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-</head>
-<body>
-
-<h1>Xin chao <c:out value="${username}"></c:out></h1>
-<div>So luong nguoi la: <c:out value="${customers.size()}"></c:out></div>
-<table class="table table-striped">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Date of Birth</th>
-    </tr>
-    <c:forEach var="customer" items="${customers}">
-    <tr>
-        <th>${customer.getId()}</th>
-        <th>${customer.getName()}</th>
-        <th>${customer.getEmail()}</th>
-<%--        formater--%>
-        <th><fmt:formatDate value="${customer.getDateOfBirth()}" pattern="dd/MM/yyyy"/></th>
-    </tr>
-    </c:forEach>
-</table>
-<footer>
-    <div class="container">
-        <c:set var="currentYear" value="<%= new Date() %>" scope="request"/>
-        <p class="text-center">© <fmt:formatDate value="${currentYear}" pattern="yyyy"></fmt:formatDate> CodeGym. All rights reserved.</p>
+<c:set var="pageTitle" value="Dashboard" />
+<%@ include file="header.jsp" %>
+<%@ include file="nav.jsp" %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header bg-secondary text-white">Dashboard</div>
+        <div class="card-body">
+          <h5 class="card-title">Xin chào <c:out value="${username}"/></h5>
+          <p class="card-text">Số lượng khách hàng: <span class="badge bg-info"><c:out value="${customers.size()}"/></span></p>
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+              <thead class="table-light">
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Date of Birth</th>
+                </tr>
+              </thead>
+              <tbody>
+                <c:forEach var="customer" items="${customers}">
+                  <tr>
+                    <td>${customer.getId()}</td>
+                    <td>${customer.getName()}</td>
+                    <td>${customer.getEmail()}</td>
+                    <td>${customer.getDateOfBirth()}</td>
+                  </tr>
+                </c:forEach>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-</footer>
-</body>
-</html>
+  </div>
+</div>
+<%@ include file="footer.jsp" %>

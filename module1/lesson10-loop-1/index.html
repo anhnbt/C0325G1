@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 10: Loop</title>
+</head>
+
+<body>
+  <script>
+    // debugger;
+    // for (let i = 1; i <= 9; i++) {
+    //   document.write("5 * " + i + " = " + (5 * i) + "<br>");
+    // }
+    // Bài 1: Hiển thị các số từ 1 - 10
+    // var i = 1;
+    // for (; i <= 10;) {
+    //   document.write(i + "<br>");
+    //   i++;
+    // }
+    // Bài 2: Tỉnh tổng từ 1 - n
+    // debugger;
+    // const n = 5;
+    // let sum = 0;
+    // for (let i = 1; i <= n; i++) {
+    //   sum += i;
+    // }
+    // document.write("Tổng từ 1 - " + n + " là: " + sum + "<br>");
+
+  </script>
+  <script>
+    // var text = 'Hello';
+    // while (text !== 'q' && text !== '') {
+    //   document.write(text + '<hr>'); // hr, img, input
+    //   text = prompt('Enter a text to print. Enter "q" to quit.', "Yen Nhi");
+    // }
+    // while (true) {
+    //   document.write("Hello" + "<br>");
+    // }
+    // let count = 1;
+    // while (count < 100) {
+    //   // Template literal: `` (backtick)
+    //   document.write(`<hr width="${count}%">`);
+    //   count = count + 2;
+    // }
+    // let count2 = 100;
+    // while (count2 > 0) {
+    //   // Template literal: `` (backtick)
+    //   document.write(`<hr width="${count2}%">`);
+    //   count2 = count2 - 2;
+    // }
+  </script>
+  <script>
+    // var sum = 0;
+    // var number;
+
+    // do {
+    //   number = parseInt(prompt('Enter a number'));
+    //   if (isNaN(number)) {
+    //     alert('Please enter a valid number!');
+    //     break; // Skip the rest of the loop and ask for input again
+    //   }
+    //   sum += number;
+    // } while (number != 0);
+
+    // document.write("The sum is: " + sum);
+    // FizzBuzz:
+    // for (let i = 1; i < 20; i++) {
+    //   if (i % 3 === 0 && i % 5 === 0) {
+    //     document.write("FizzBuzz<br>");
+    //   } else if (i % 3 === 0) {
+    //     document.write("Fizz<br>");
+    //   } else if (i % 5 === 0) {
+    //     document.write("Buzz<br>");
+    //   } else {
+    //     document.write(i + "<br>");
+    //   }
+    // }
+    // debugger;
+    // let count = 0;
+    // do {
+    //   count++;
+    // } while (count++ < 10);
+    // console.log(count);
+
+    // create for nested loop
+    // for (let i = 1; i <= 5; i++) { // Số dòng
+    //   for (let j = 10; j >= 0; j--) { // Số cột (Số lượng ngôi sao)
+    //     if (j === 10 || j === 0 || i === 1 || i === 5) {
+    //       document.write(`*&nbsp;`);
+    //     } else {
+    //       // &nbsp; HTML Entity: Khoảng trắng
+    //       document.write(`&nbsp;&nbsp;&nbsp;`); // Thay thế khoảng trắng bằng dấu cách
+    //     }
+    //   }
+    //   document.write("<br>");
+    // }
+    // const table = document.createElement('table');
+    const h1 = document.createElement('h1');
+    h1.textContent = "Bảng cửu chương";
+    h1.style.color = "blue";
+    const p = document.createElement('p');
+    let operator = "+";
+    switch (operator) {
+      case '+':
+        p.textContent = "Bảng cửu chương cộng";
+        break;
+      case '-':
+        p.textContent = "Bảng cửu chương trừ";
+        break;
+      case '*':
+        p.textContent = "Bảng cửu chương Nhân";
+        break;
+      case '/':
+        p.textContent = "Bảng cửu chương chia";
+        break;
+      default:
+        p.textContent = "Bảng cửu chương cộng";
+    }
+    document.body.appendChild(h1);
+    document.body.appendChild(p);
+    const table = document.createElement('table');
+
+    // chèn thêm các dòng và cột trước khi render ra table trên giao diện
+    // table, tr, td, th, tbody, thead, tfoot
+    for (let i = 1; i <= 9; i++) {
+      const row = document.createElement('tr');
+      for (let j = 1; j <= 9; j++) {
+        const cell = document.createElement('td');
+        cell.textContent = `${i} ${operator} ${j} = ${eval(`${i} ${operator} ${j}`)}`; // Template literal `${}`
+        cell.style.border = "1px solid black";
+        // cell.style.padding = "5px";
+        row.appendChild(cell);
+      }
+      table.appendChild(row);
+    }
+    console.log(table);
+
+    document.body.appendChild(table);
+  </script>
+</body>
+
+</html>

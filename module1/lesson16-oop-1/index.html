@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 16: OOP</title>
+</head>
+
+<body>
+  <script>
+
+    // Khai báo lớp Person
+    function Person(name, age, avatar) {
+      // Properties
+      this.name = name;
+      this.age = age;
+      this.avatar = avatar;
+
+      this.say = function () {
+        console.log(`Xin chào, tôi là ${this.name}, ${this.age} tuổi`);
+      }
+
+      this.move = function (img) {
+        console.log(`${this.name} đang di chuyển`);
+        console.log(img.style.left);
+        if (parseInt(img.style.left) > window.innerWidth - img.width) {
+          img.style.left = '0px';
+        } else {
+          img.style.left = (parseInt(img.style.left) + 100) + 'px';
+        }
+      }
+    }
+
+    // Khởi tạo đối tượng từ lớp Person
+    const pikachu = new Person("Pikachu", 3, 'Ash-and-Pikchu.png');
+    const vinh = new Person("Nguyễn Thành Vinh", 18);
+    const haiAnh = new Person("Phạm Hải Anh", 21);
+
+    const pikachuImg = new Image();
+    pikachuImg.src = pikachu.avatar;
+    pikachuImg.width = 200;
+    pikachuImg.height = 150;
+    pikachuImg.style.position = 'relative';
+    pikachuImg.style.left = '0px';
+    document.body.appendChild(pikachuImg);
+
+    const nhi = {
+      name: "Nguyễn Thị Nhi",
+      age: 18,
+      weight: 50,
+      say: function () {
+        console.log(`Xin chào, tôi là ${this.name}, ${this.age} tuổi`);
+      },
+    }
+  </script>
+</body>
+
+</html>

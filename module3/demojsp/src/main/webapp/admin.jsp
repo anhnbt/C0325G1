@@ -5,30 +5,30 @@
   Time: 4:32 CH
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Dashboard Administration</title>
-</head>
-<body>
-<%
-    String username = request.getParameter("username");
-    String password = request.getParameter("password");
-%>
-<ul>
-    <li>Xin: <%= username %></li>
-    <li>Mat khau cua ban: <%= password %></li>
-</ul>
-<c:set scope="request" var="username" value="CodeGym"></c:set>
-<c:set scope="request" var="password" value="Admin@123"></c:set>
-<ul>
-    <li>Xin chao <c:out value="${username}"></c:out></li>
-    <li>Mat khau: <c:out value="${password}"></c:out></li>
-    <li></li>
-</ul>
-<%--<h1>Xin chao <c:out value="${username}"></c:out></h1>--%>
-<%--<div>So luong nguoi la: <c:out value="customers.size()"></c:out></div>--%>
-<%--renter table--%>
-</body>
-</html>
+<c:set var="pageTitle" value="Admin" />
+<%@ include file="header.jsp" %>
+<%@ include file="nav.jsp" %>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header bg-warning text-dark">Thông tin Admin</div>
+        <div class="card-body">
+          <ul class="list-group mb-3">
+            <li class="list-group-item">Xin chào: <strong><%= request.getParameter("username") %></strong></li>
+            <li class="list-group-item">Mật khẩu của bạn: <strong><%= request.getParameter("password") %></strong></li>
+          </ul>
+          <c:set scope="request" var="username" value="CodeGym"/>
+          <c:set scope="request" var="password" value="Admin@123"/>
+          <ul class="list-group">
+            <li class="list-group-item">Xin chào <c:out value="${username}"/></li>
+            <li class="list-group-item">Mật khẩu: <c:out value="${password}"/></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%@ include file="footer.jsp" %>

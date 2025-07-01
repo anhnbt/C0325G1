@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const cities = [];
+    // categories = ["Thành phố", "Quận huyện"];
+    // products
+    // fruits
+    // students
+    // shoppingCarts
+    // customers
+    // employees
+    const cityNumber = +prompt("Nhập số thành phố muốn tạo:");
+    if (isNaN(cityNumber) || cityNumber <= 0) {
+      alert("Vui lòng nhập một số hợp lệ.");
+    }
+    for (let i = 0; i < cityNumber; i++) {
+      const districtNumber = +prompt("Nhập số quận huyện của thành phố:");
+      if (isNaN(districtNumber) || districtNumber <= 0) {
+        alert("Vui lòng nhập một số hợp lệ.");
+        i--; // Giảm chỉ số để yêu cầu nhập lại
+        continue;
+      }
+      for (let j = 0; j < districtNumber; j++) {
+        const district = prompt("Nhập tên quận huyện:");
+        if (district) {
+          cities.push(district);
+        }
+        else {
+          alert("Tên quận huyện không được để trống.");
+          j--; // Giảm chỉ số để yêu cầu nhập lại
+        }
+      }
+    }
+
+    // Display cities in a table
+    const table = document.createElement("table");
+    const headerRow = document.createElement("tr");
+    const headerCell = document.createElement("th");
+    headerCell.textContent = "Quận huyện";
+    headerRow.appendChild(headerCell);
+    table.appendChild(headerRow);
+    cities.forEach((city) => {
+      const row = document.createElement("tr");
+      const cell = document.createElement("td");
+      cell.textContent = city;
+      row.appendChild(cell);
+      table.appendChild(row);
+    });
+    document.body.appendChild(table);
+
+  </script>
+</body>
+
+</html>

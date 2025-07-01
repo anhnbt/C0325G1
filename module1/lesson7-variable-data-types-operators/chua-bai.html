@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <script src="main.js"></script>-->
+</head>
+<body>
+<form action="">
+    <input type="number" name="yourAge" id="yourAge" value="" placeholder="Tuổi của bạn">
+    <input type="number" name="friendAge" id="friendAge" value="" placeholder="Tuổi của bạn của bạn">
+    <button type="button" id="btnPrint">In ra tổng số tuổi của 2 người</button>
+    <div id="kq"></div>
+</form>
+<script>
+    document.getElementById("btnPrint").addEventListener("click", function() {
+        let yourAge = +document.getElementById("yourAge").value;
+        let friendAge = +document.getElementById("friendAge").value;
+        console.log(yourAge);
+        console.log(friendAge);
+        document.getElementById("kq").innerText = 'Tổng số tuổi của 2 người là: ' + (yourAge + friendAge);
+    })
+</script>
+</body>
+</html>
